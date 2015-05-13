@@ -1,0 +1,8 @@
+{
+  "name": "geogame",
+  "version": "0.0.1",
+  "description": "socket.io app for Geogame",
+  "dependencies": {
+    "express": "^4.10.2"
+  }
+}
