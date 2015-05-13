@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Game of Triangles</title>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/png" href="isaappCross32.png">
+	<!-- Windows -->
+	<meta name="application-name" content="Game of Triangles"/>
+	<!-- Apple -->
+	<link rel="apple-touch-startup-image" href="img/isaappCrossStartup.png">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<link rel="apple-touch-icon-precomposed" sizes="128x128" href="img/isaappCross128.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="32x32" href="img/isaappCross32.png" />
+	<!-- Android -->
+	<meta name="mobile-web-app-capable" content="yes">
+	<link rel="shortcut icon" sizes="270x270" href="img/isaappCross270.png">
+	<link rel="shortcut icon" sizes="128x128" href="img/isaappCross128.png">
+	
+	<!-- jQuery -->
+	<script type="text/javascript" src="js/vendor/jquery-2.1.1.min.js"></script>
+	
+	<!-- Backbone -->
+	<script type="text/javascript" src="js/vendor/backbone-min.js"></script>
+	
+	<!-- Socket.io -->
+	<!-- <script type="text/javascript" src="http://127.0.0.1:3000/socket.io/socket.io.js"></script> -->
+	
+	<!-- Leaflet -->
+	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+
+	<!--
+
+	Templates
+
+	-->
+
+	<script type="text/template" id="startscreen_temp">
+		<h1>Welcome to the Geo Game!</h1>
+		<button id="instructions">Read the instructions</button>
+		<input type="text" placeholder="Choose a display name" id="username">
+		<button id="continue_game">Continue</button>
+	</script>
+
+	<script type="text/template" id="popup_temp">
+		<div>
+			<%= text %>
+		</div>
+		<button class="close">Close</button>
+	</script>
+	
+</head>
+<body>
+
+	
+	
+	<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+	<script type="text/javascript" src="js/backboneclient.js"></script>
+	<!--
+		<script type="text/javascript" src="geoClient.js"></script>
+		<script type="text/javascript" src="geoLeaflet.js"></script>
+	-->
+</body>
+</html>

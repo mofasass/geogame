@@ -207,6 +207,10 @@ Every view has something called `el`, which stands for element. The `el` is the 
 
 User = Backbone.Model.extend({
 
+    url: function() {
+        return 'http://api.example.com';
+    },
+
     loginUser: function(user, pass) {
         $.ajax({
             url: 'http://api.example.com/login',
