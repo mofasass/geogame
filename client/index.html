@@ -19,12 +19,6 @@
 	<link rel="shortcut icon" sizes="270x270" href="img/isaappCross270.png">
 	<link rel="shortcut icon" sizes="128x128" href="img/isaappCross128.png">
 	
-	<!-- jQuery -->
-	<script type="text/javascript" src="js/vendor/jquery-2.1.1.min.js"></script>
-	
-	<!-- Backbone -->
-	<script type="text/javascript" src="js/vendor/backbone-min.js"></script>
-	
 	<!-- Socket.io -->
 	<!-- <script type="text/javascript" src="http://127.0.0.1:3000/socket.io/socket.io.js"></script> -->
 	
@@ -50,12 +44,25 @@
 		</div>
 		<button class="close">Close</button>
 	</script>
+
+	<script type="text/template" id="rooms_temp">
+		<% if (!rooms.length) { %>
+			<% for (var i = 0; i < rooms.length; i ++) { %>
+				<li class="game"><%= rooms[i].name %></li>
+			<% } %>
+		<% } else { %>
+			<li>No games yet!</li>
+		<% } %>
+		<button id="create_room">Create game</button>
+	</script>
 	
 </head>
 <body>
 
-	
-	
+	<script src="http://localhost:3000/socket.io/socket.io.js"></script>
+	<script type="text/javascript" src="js/vendor/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="js/vendor/underscore.js"></script>
+	<script type="text/javascript" src="js/vendor/backbone.js"></script>
 	<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
 	<script type="text/javascript" src="js/backboneclient.js"></script>
 	<!--
