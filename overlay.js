@@ -172,15 +172,11 @@ function overlay(pointsArray1, pointsArray2, precision) {
 			var isIn1 = isInTriangle(pointsArray1, centerX, centerY);
 			if (isIn1) { 
 				in1++;
-				lum += 20;
-				hue += 80;
 			}
 			// Test if on triangle 2
 			var isIn2 = isInTriangle(pointsArray2, centerX, centerY);
 			if (isIn2) { 
 				in2++;
-				lum += 20;
-				hue += -80;
 			}
 			// Test if on both
 			if (isIn1 && isIn2) { 
@@ -204,7 +200,7 @@ function overlay(pointsArray1, pointsArray2, precision) {
  * [{x: x1, y: y1}, {x: x2, y: y2}, {x: x3, y: y3}]
  * @param {Array} pointsArray2 2D-coordinates of the 2nd triangle vertices
  * [{x: x1, y: y1}, {x: x2, y: y2}, {x: x3, y: y3}]
- * @param {String} precision "normal", "high" or "extreme"
+ * @param {String} precision 'normal', 'high' or 'extreme'
  * @param {String} canvasID ID of canvas element in the DOM 
  * @returns {Array} Array with % of coverage by other triangle
  */
@@ -217,7 +213,7 @@ function overlayAnimated(pointsArray1, pointsArray2, precision, canvasID) {
 	// Background
 	ctx.beginPath();
 	ctx.rect(0, 0, canvas.width, canvas.height);
-	ctx.fillStyle = "#111";
+	ctx.fillStyle = '#111';
 	ctx.fill();
 	
 	// Triangles
@@ -244,8 +240,8 @@ function overlayAnimated(pointsArray1, pointsArray2, precision, canvasID) {
 	var in1 = 0, in2 = 0, inBoth = 0, inSomething = 0;
 	
 	// Match precision with number of rectangles
-	var prec = (precision == "extreme" ? 100 : 
-		(precision == "high" ? 30 : 
+	var prec = (precision == 'extreme' ? 100 : 
+		(precision == 'high' ? 30 : 
 			10
 		)
 	);
