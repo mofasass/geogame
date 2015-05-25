@@ -1,0 +1,172 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300);
+
+body, html {
+	font-family: Open Sans;
+	font-weight: 300;
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	width: 100%;
+	background-image: url('../img/bokeh.jpg');
+	background-position: center;
+}
+
+input, button {
+	font-family: Open Sans;
+	font-weight: 300;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+h1, h2, h3, h4, p, ul, li {
+	margin: 0;
+	padding: 0;
+	font-weight: 300;
+}
+
+ul {
+	list-style-type: none;
+}
+
+li {
+	width: 100%;
+	font-size: 1em;
+	padding: 1em;
+	color: #fff;
+	text-align: center;
+	transition: background 2s ease-in-out;
+}
+
+li.ready {
+	background: rgba(156, 255, 0, 0.2);
+}
+
+li:nth-child(2n):not(.ready) {
+	background: rgba(255, 255, 255, 0.1);
+}
+li:nth-child(2n+1):not(.ready) {
+	background: rgba(255, 255, 255, 0.2);
+}
+
+main {
+	height: 100%;
+	width: 100%;
+	padding: 1em;
+}
+
+section {
+	height: 100%;
+	width: 100%;
+	position: relative;
+}
+
+#top {
+	color: #fff;
+	position: relative;
+	text-align: center;
+	padding: 1em 0;
+	border-bottom: 1px dashed #fff;
+	margin: 0 0 1em 0;
+}
+
+#instructions {
+	color: #fff;
+	background: none;
+	border-radius: 50%;
+	border: 1px solid rgba(255, 255, 255, 0.6);
+	position: absolute;
+	width: 2.2em;
+	height: 2.2em;
+  	top: 50%;
+  	transform: translateY(-50%);
+	right: 1em;
+}
+
+input {
+	width: 100%;
+	font-size: 1.1em;
+	padding: 1em;
+	border: none;
+	background: rgba(255, 255, 255, 0.2);
+	color: #fff;
+	text-align: center;
+}
+
+.button {
+	display: block;
+	margin: 1em 0 0 0;
+	width: 100%;
+	padding: 1em;
+	font-size: 1.6em;
+	border-radius: 10px;
+	border: 1px dashed #fff;
+	background: none;
+	color: #fff;
+}
+
+.control-button {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
+
+.control-button-set {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-between;
+	width: 100%;
+}
+
+.control-button-set .button {
+	flex: 1;
+}
+
+.control-button-set .button:nth-child(1) {
+	margin: 0 0.5em 0 0;
+}
+
+.control-button-set .button:nth-child(2) {
+	margin: 0 0 0 0.5em;
+}
+
+.popup {
+	padding: 2em;
+	color: #fff;
+	position: fixed;
+	z-index: 2;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.9);
+}
+
+.popup > div {
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.fullscreen.active {;
+	height: 100%;
+	width: 100%;
+	z-index: 2;
+}
+
+.leaflet-container {
+	position: fixed;
+	top: 0;
+	left: 0;
+}
+
+.placecorner {
+	height: 70px;
+	width: 50px;
+	background: url('../img/pin.png') bottom right no-repeat;
+	margin: 2em;
+}

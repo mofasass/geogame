@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<title>Game of Triangles</title>
 	
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 	<link rel="icon" type="image/png" href="isaappCross32.png">
 	<!-- Windows -->
 	<meta name="application-name" content="Game of Triangles"/>
@@ -19,11 +19,9 @@
 	<link rel="shortcut icon" sizes="270x270" href="img/isaappCross270.png">
 	<link rel="shortcut icon" sizes="128x128" href="img/isaappCross128.png">
 	
-	<!-- Socket.io -->
-	<!-- <script type="text/javascript" src="http://127.0.0.1:3000/socket.io/socket.io.js"></script> -->
-	
-	<!-- Leaflet -->
+
 	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+	<link rel="stylesheet" href="css/main.css" />
 
 	<!--
 
@@ -32,32 +30,58 @@
 	-->
 
 	<script type="text/template" id="startscreen_temp">
-		<h1>Welcome to the Geo Game!</h1>
-		<button id="instructions">Read the instructions</button>
-		<input type="text" placeholder="Choose a display name" id="username">
-		<button id="continue_game">Continue</button>
+		<div id="top">
+			<h1>Game of Trangles!</h1>
+			<button id="instructions" class="custom">?</button>
+		</div>
+		<input type="text" placeholder="Pick a display name" id="username">
+		<button id="continue_game" class="button control-button">Continue</button>
 	</script>
 
 	<script type="text/template" id="popup_temp">
 		<div>
-			<%= text %>
+			<p><%= text %></p>
+			<button class="close button">Close</button>
 		</div>
-		<button class="close">Close</button>
+		
 	</script>
 
 	<script type="text/template" id="rooms_temp">
-		<% if (!rooms.length) { %>
-			<% for (var i = 0; i < rooms.length; i ++) { %>
-				<li class="game"><%= rooms[i].name %></li>
+		<div id="top">
+			<h1>Available games</h1>
+		</div>
+		<ul>
+			<% if (rooms.length != 0) { %>
+				<% for (var i = 0; i < rooms.length; i ++) { %>
+					<li class="game" data-gamename="<%= rooms[i].name %>"><%= rooms[i].name %></li>
+				<% } %>
+			<% } else { %>
+				<li>No games yet!</li>
 			<% } %>
-		<% } else { %>
-			<li>No games yet!</li>
-		<% } %>
-		<button id="create_room">Create game</button>
+		</ul>
+		<button id="create_room" class="button control-button">Create game</button>
+	</script>
+
+	<script type="text/template" id="room_temp">
+		<div id="map" class="fullscreen"></div>
+		<div id="top">
+			<h1>Game hosted by: <%= room %></h1>
+		</div>
+		<ul id="users_in_room"></ul>
+		<div class="control-button-set">
+			<button class="button" id="ready">Set Ready</button>
+			<button class="button" id="back">Back to rooms</button>
+		</div>
+	</script>
+
+	<script type="text/template" id="user_temp">
+		<span class="display_user"><%= user.name %></span>
 	</script>
 	
 </head>
 <body>
+
+	<main></main>
 
 	<script src="http://localhost:3000/socket.io/socket.io.js"></script>
 	<script type="text/javascript" src="js/vendor/jquery-2.1.1.min.js"></script>
@@ -65,9 +89,6 @@
 	<script type="text/javascript" src="js/vendor/backbone.js"></script>
 	<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
 	<script type="text/javascript" src="js/backboneclient.js"></script>
-	<!--
-		<script type="text/javascript" src="geoClient.js"></script>
-		<script type="text/javascript" src="geoLeaflet.js"></script>
-	-->
+
 </body>
 </html>

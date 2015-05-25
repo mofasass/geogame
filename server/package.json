@@ -3,7 +3,12 @@
   "version": "0.0.1",
   "description": "socket.io app for Geogame",
   "dependencies": {
+    "bluebird": "^2.9.25",
+    "bookshelf": "^0.8.1",
     "express": "^4.10.2",
-    "socket.io": "^1.3.5"
+    "knex": "^0.8.5",
+    "socket.io": "^1.3.5",
+    "sqlite3": "^3.0.8",
+    "underscore": "^1.8.3"
   }
 }
